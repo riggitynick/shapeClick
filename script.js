@@ -5,9 +5,17 @@ function removeSplash(){
   // this.remove();
 };
 
-function mapView(){
-      window.open("https://www.starbucks.com/store-locator/");
-  }
+
+//402 
+// AFRAME.registerComponent("b402", {
+//   init: function() {
+//    this.el.addEventListener("click", () => {  
+//    document.getElementById("b402Popup").style.display ="unset";
+//       });}});
+
+function removeWinPopup(){
+document.getElementById("winPopup").style.display = "none";
+};
 
 
 
@@ -58,7 +66,8 @@ function mapView(){
             count +=0.5;
             button.innerHTML = "Score: " + count;
               if (count === 30){
-              window.alert("You win!");
+              document.getElementById("winPopup").style.display ="unset";
+              // window.alert("You win!");
             }
             
   

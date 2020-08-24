@@ -102,7 +102,7 @@ width: 5%;
 height: 5%;  
 }
 
-#hwPopup, #cuPopup, #rc2Popup, #ao1Popup, #b402Popup, #b401Popup, #b400Popup, #rc1nPopup, #rc1sPopup, 
+#hwPopup, #cuPopup, #rc2Popup, #ao1Popup, #winPopup, #b401Popup, #b400Popup, #rc1nPopup, #rc1sPopup, 
 #pharmacyPopup, #b500Popup, #barbdavisPopup, #libraryPopup, #nighthorsePopup, #ed1Popup, 
 #dentalPopup, #fulgenetiPopup, #ed2nPopup, #ed2sPopup, #campservePopup {
 display: none;
@@ -111,7 +111,7 @@ float: right;
  margin: auto;
  margin-top: 20px;
  opacity: .85;
- background-color: rgb(59, 59, 59);
+ background-color: rgb(22, 22, 22);
   color: white;
   text-align: center;
   width: 100%;
@@ -214,9 +214,26 @@ padding-bottom: 0;
          <!-- </a> -->
               </h4>
               
-               
+       
               
  </div>
+
+ <div id="winPopup">
+  <br>
+  <h3>Thank you for playing!</h3>
+  <br>
+    <div class="closingText">You win!</div>
+   <br> 
+  <h3>Feel free to close this popup to click more shapes,<br>
+  or click <a href="">HERE</a> 
+to play again.
+</h3>
+  <div class="closeSymbol" onclick="removeWinPopup()">x</div>
+</div>
+
+
+
+
 
 
  <div id="clickme">Score</div>
@@ -368,9 +385,20 @@ padding-bottom: 0;
     
        <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-4 5 3" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
     
-   <!-- <a-gltf-model src="models/swordTest.gltf" animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-4 4 5" scale=".3 .3 .3"clickhandler2></a-gltf-model> 
-    
-     -->
+   
+       
+<!--     TOP LAYER PURPLE  -->
+<a-entity animation="property: rotation; to: 0 -360 0; loop: true; dur: 10000; easing: linear;">
+<a-tetrahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 4000; easing: linear;" position="0 9 4" material='opacity: 0.5' color="purple" scale="1.5 1.5 1.5" clickhandler2></a-tetrahedron>
+<a-tetrahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 4000; easing: linear;" position="0 9 -4" material='opacity: 0.5' color="purple" scale="1.5 1.5 1.5" clickhandler2></a-tetrahedron>
+<a-tetrahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 4000; easing: linear;" position="4 9 0" material='opacity: 0.5' color="purple" scale="1.5 1.5 1.5" clickhandler2></a-tetrahedron>
+<a-tetrahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 4000; easing: linear;" position="-4 9 0" material='opacity: 0.5' color="purple" scale="1.5 1.5 1.5" clickhandler2></a-tetrahedron>
+
+</a-entity>
+
+
+
+
     
     <!-- ALLOWS ROTATION AND USES GYROSCOPE IN PHONE -->
 
