@@ -1,23 +1,17 @@
 <html>
 <meta aframe-injected="" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no,user-scalable=no,minimal-ui">
 <meta aframe-injected="" name="mobile-web-app-capable" content="yes">
-<!-- <link rel="stylesheet" href="style.css"> -->
 
    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-  
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
-    <script>
+   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+  <script>
       THREEx.ArToolkitContext.baseURL = 'https://raw.githack.com/jeromeetienne/ar.js/master/three.js/'
   </script>
-
-<script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-
-    <script src="script.js"> </script>
-
+  <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+  <script src="script.js"> </script>
 
 
 <style>
-
 html.a-fullscreen .a-canvas {
     position: relative!important;
     z-index:10;
@@ -25,15 +19,14 @@ html.a-fullscreen .a-canvas {
   }
 
 a-canvas{
-/* height: 50%; */
 margin: 0; 
 } 
 
 a-scene{
 margin: 0;
 padding:0;
-/* background-color: black; */
 }
+
 h1, h5{
 margin-top: 0;
 padding: 0;
@@ -52,7 +45,6 @@ text-decoration: none;
 
 a h3{
 color: rgb(252, 219, 76);
-/* text-decoration: none;  find way to remove underlines*/
 }
 
 .img1{
@@ -63,7 +55,6 @@ height: 130px;
 width: 130px;
 margin: auto;
 margin-top: 5%;
-/* padding:3%; */
 }
 
 .img2{
@@ -73,8 +64,8 @@ height: 60px;
 width: 60px;
 margin: auto;
 margin-top:5%;
-/* padding:3%; */
 }
+
 #splashscreen {
 font-family: Arial, Helvetica, sans-serif;
  float: right;
@@ -89,10 +80,7 @@ font-family: Arial, Helvetica, sans-serif;
 }
 
 .closeSymbol{
-/* background: url(images/x-icon-test.png) no-repeat; */
-/* background-size: 15%; */
 border: none;
-/* font-weight:bold; */
 color: black;
 text-align: center;
 font-size: 5em;
@@ -102,9 +90,7 @@ width: 5%;
 height: 5%;  
 }
 
-#hwPopup, #cuPopup, #rc2Popup, #ao1Popup, #winPopup, #b401Popup, #b400Popup, #rc1nPopup, #rc1sPopup, 
-#pharmacyPopup, #b500Popup, #barbdavisPopup, #libraryPopup, #nighthorsePopup, #ed1Popup, 
-#dentalPopup, #fulgenetiPopup, #ed2nPopup, #ed2sPopup, #campservePopup {
+#winPopup {
 display: none;
 font-family: Arial, Helvetica, sans-serif;
 float: right;
@@ -118,29 +104,11 @@ float: right;
   height: 100%;
 }
 
-#enter_link {
-line-height: 300px;
-padding-bottom: 0;
-}
-#exitTestPopup {
-line-height: 300px;
-padding-bottom: 0;
-}
-
 #clickme {
-   font-family: Arial, Helvetica, sans-serif;
-   margin-bottom: 0;
- /* margin-right: 50%; */
-   /* margin-top: .5vw; */
-  /* top: 50vw; */
-  /* left: 50%;  */
-  /* border-top: 10px; */
-  /* position: fixed; */
-  /* z-index: -2; */
-  /* padding: .05em; */
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 0;
   padding-top: .5em;
   border-radius: 4px;
-  /* border: none; */
   opacity: .85;
   background-color: black;
   color: rgb(127, 58, 238);
@@ -159,72 +127,51 @@ padding-bottom: 0;
   padding: 2px;
   }
 
+ </style>
 
 
-    </style>
-
-
- 
 <body style="margin: 0; overflow: hidden;" >
 
-  <!-- <div class="popup" onclick="myFunction()">Click me to toggle the popup!
-    <span class="popuptext" id="myPopup">A Simple Popup!</span>
-  </div> -->
-
-
+<!-- CREATES CANVAS AND SCENE ACCESSING DEVICE CAMERA -->
   <a-canvas>
    
-  
-
-<!-- ADDED POINTS ATTRIBUTE TO COUNT POINTS -->
-  
   <a-scene vr-mode-ui="enabled: false" points>
     
-      
- <!-- Displays score -->
-
+<!-- LOADS SPLASHSCREEN -->
  <div id="splashscreen">
-  <!-- <img src="images/x-icon-test.png" alt="test" width="50" height="50"> -->
-   
-           <!-- MAKE THIS INTO A NAVIGATION BAR -->
-           <div class="img1"></div>
+  
+  <div class="img1"></div>
     <h3>Welcome to Shape Click,<br>
      An AR game, where the objective<br>
      is to click on the shapes around<br>
      you, to collect points.<br>
      <br>
      <span style="color: rgb(231, 250, 65);"> Reach 20 points to win!</span><br>
-      <br>
-    
-      </h3>
+     <br>
+     </h3>
       
-    
    
    
-        <h4>
-         <!-- <img src="images/sbucks logo.png" width="200" height="200"> -->
-         To use this site correctly:<br>
+  <h4>To use this site correctly:<br>
      -Use a <span style="color: rgb(65, 182, 250);">MOBILE</span> device such as a cell phone<br>
      -Allow this site to access your <span style="color: green;">CAMERA</span><br>
      
-     
-     <!-- <a href="#" style="font-size: .7em;  vertical-align: text-top;" id="enter_link" onclick="removeSplash()"></a> -->
-       <div class="img2" id="enter_link" onclick="removeSplash()">
+   <!-- REMOVES SPLASHSCREEN -->
+     <div class="img2" id="enter_link" onclick="removeSplash()">
           </div>
          <!-- </a> -->
-              </h4>
-              
-       
-              
+              </h4>   
  </div>
 
+
+ <!-- STATES THAT YOU WIN ONCE YOU REACH 20 POINTS -->
  <div id="winPopup">
   <br>
   <br>
   <br>
   <h3>Thank you for playing! </h3>
-    <br>
-   <h1>YOU WIN!</h1>
+  <br>
+  <h1>YOU WIN!</h1>
  
    
    <div class="closeSymbol" onclick="removeWinPopup()">x</div>
@@ -235,162 +182,148 @@ padding-bottom: 0;
   <h3>Close this popup to click more shapes,<br>
   or click <a href="">HERE</a> to play again.
 </h3>
-  
 </div>
 
-
-
-
-
-
+<!-- DISPLAYS SCORE -->
  <div id="clickme">Score</div>
 
+<!-- START OF PLACING SHAPES -->
 
-
-
-
-
-
-
-
-
-
-   <!--     FIRST LAYER WHITE  -->
-   <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;" position="-4 1 7" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<!--     FIRST LAYER WHITE  -->
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;" position="-4 1 7" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
     
-   <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-2 1 7" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-2 1 7" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+  
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="0 1 7" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
    
-   <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="0 1 7" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="2 1 7" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
    
-   <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="2 1 7" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
-   
-     <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 1 7" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 1 7" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
 
-    <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 1 5" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 1 5" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
    
-   <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 1 3" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 1 3" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
    
-    <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 1 1" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 1 1" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
    
- <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 1 -1" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 1 -1" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
    
-  <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 1 -3" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 1 -3" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
    
-  <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 1 -5" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 1 -5" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
    
 <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 1 -7" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
    
-    <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="2 1 -7" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="2 1 -7" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
    
-        <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="0 1 -7" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="0 1 -7" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
    
-       <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-2 1 -7" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-2 1 -7" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
    
-    <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-4 1 -7" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-4 1 -7" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
    
-      <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-4 1 -5" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-4 1 -5" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
    
-  <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-4 1 -3" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-4 1 -3" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
    
-  <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-4 1 -1" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-4 1 -1" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
 
-  <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-4 1 1" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-4 1 1" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
    
-      <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-4 1 3" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-4 1 3" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
    
-  <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-4 1 5" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-4 1 5" material='opacity: 0.5' color="white" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
    
    
     
 <!--     SECOND LAYER ORANGE  -->
-         <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;" position="-4 3 7" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;" position="-4 3 7" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
     
-    <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-2 3 7" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-2 3 7" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
     
-    <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="0 3 7" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="0 3 7" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
     
-    <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="2 3 7" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="2 3 7" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
     
-      <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 3 7" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 3 7" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
 
-     <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 3 5" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 3 5" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
     
-    <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 3 3" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 3 3" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
     
-     <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 3 1" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 3 1" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
     
-  <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 3 -1" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 3 -1" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
     
-   <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 3 -3" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 3 -3" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
     
-   <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 3 -5" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 3 -5" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
     
- <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 3 -7" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 3 -7" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
     
-     <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="2 3 -7" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="2 3 -7" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
     
-         <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="0 3 -7" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="0 3 -7" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
     
-        <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-2 3 -7" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-2 3 -7" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
     
-     <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-4 3 -7" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-4 3 -7" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
     
-       <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-4 3 -5" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-4 3 -5" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
     
-   <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-4 3 -3" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-4 3 -3" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
     
-   <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-4 3 -1" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-4 3 -1" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
 
-   <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-4 3 1" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-4 3 1" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
     
-       <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-4 3 3" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-4 3 3" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
     
-   <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-4 3 5" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-4 3 5" material='opacity: 0.5' color="orange" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
     
     
- 
 <!--     THIRD LAYER TEAL  -->
-         <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;" position="-4 5 7" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;" position="-4 5 7" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
     
-    <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-2 5 7" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-2 5 7" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
     
-    <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="0 5 7" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="0 5 7" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
     
-    <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="2 5 7" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="2 5 7" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
     
-      <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 5 7" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 5 7" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
 
-     <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 5 5" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 5 5" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
     
-    <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 5 3" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 5 3" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
     
-     <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 5 1" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 5 1" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
     
-  <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 5 -1" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 5 -1" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
     
-   <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 5 -3" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 5 -3" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
     
-   <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 5 -5" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 5 -5" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
     
- <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 5 -7" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="4 5 -7" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
     
-     <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="2 5 -7" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="2 5 -7" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
     
-         <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="0 5 -7" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="0 5 -7" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
     
-        <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-2 5 -7" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-2 5 -7" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
     
-     <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-4 5 -7" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-4 5 -7" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
     
-       <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-4 5 -5" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-4 5 -5" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
     
-   <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-4 5 -3" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-4 5 -3" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
     
-   <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-4 5 -1" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-4 5 -1" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
 
-   <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-4 5 1" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-4 5 1" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
     
-       <a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-4 5 3" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
+<a-dodecahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 3000; easing: linear;"  position="-4 5 3" material='opacity: 0.5' color="teal" scale=".5 .5 .5" clickhandler2></a-dodecahedron>
     
    
        
@@ -400,20 +333,14 @@ padding-bottom: 0;
 <a-tetrahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 4000; easing: linear;" position="0 9 -4" material='opacity: 0.5' color="purple" scale="1.5 1.5 1.5" clickhandler2></a-tetrahedron>
 <a-tetrahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 4000; easing: linear;" position="4 9 0" material='opacity: 0.5' color="purple" scale="1.5 1.5 1.5" clickhandler2></a-tetrahedron>
 <a-tetrahedron animation="property: rotation; to: 0 360 0; loop: true; dur: 4000; easing: linear;" position="-4 9 0" material='opacity: 0.5' color="purple" scale="1.5 1.5 1.5" clickhandler2></a-tetrahedron>
-
 </a-entity>
 
 
+<!-- ACCESS CAMERA, ALLOW ROTATION AND USE GYROSCOPE IN PHONE -->
 
+<a-camera rotation-reader look-controls="enabled: true; hmdEnabled: false; touchEnabled: false;" cursor="rayOrigin: mouse" fov="47" far="1000"></a-camera>  
 
-    
-    <!-- ALLOWS ROTATION AND USES GYROSCOPE IN PHONE -->
-
-    <a-camera rotation-reader look-controls="enabled: true; hmdEnabled: false; touchEnabled: false;" cursor="rayOrigin: mouse" fov="47" far="1000"></a-camera>
-    
-
-  </a-scene>
-  
+</a-scene>
 </a-canvas>
 </body>
 </html>
