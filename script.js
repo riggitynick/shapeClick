@@ -65,7 +65,7 @@ document.getElementById("winPopup").style.display = "none";
                         
             count +=0.5;
             button.innerHTML = "Score: " + count;
-              if (count === 30){
+              if (count === 20){
               document.getElementById("winPopup").style.display ="unset";
               // window.alert("You win!");
             }
